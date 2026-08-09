@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THIRUVAZAHAN — Filmmaker Portfolio</title>
+<meta name="description" content="Filmmaker portfolio — directing, script writing, assistant direction, sound and production.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@600;700;800&display=swap');
+
+:root {
+  --black:#090909;
+  --ink:#151515;
+  --paper:#f2eee4;
+  --paper2:#e7e0d2;
+  --white:#faf8f2;
+  --gold:#c8a15a;
+  --red:#8e3025;
+  --muted:#777166;
+  --line:rgba(21,21,21,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",Arial,sans-serif;line-height:1.55}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--gold);color:var(--black)}
+
+.noise{position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.035;
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:90;background:rgba(9,9,9,.94);color:var(--white);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.1)}
+.nav-inner{max-width:1180px;margin:auto;padding:17px 28px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.18em}
+.logo span{color:var(--gold)}
+.navlinks{display:flex;gap:28px;font:11px "DM Mono",monospace;text-transform:uppercase;letter-spacing:.12em}
+.navlinks a{opacity:.75;transition:.2s}
+.navlinks a:hover{opacity:1;color:var(--gold)}
+@media(max-width:700px){.navlinks{display:none}}
+
+.hero{min-height:100vh;background:var(--black);color:var(--white);display:grid;align-items:end;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 75% 35%,rgba(200,161,90,.15),transparent 28%),linear-gradient(90deg,rgba(0,0,0,.92),rgba(0,0,0,.42));pointer-events:none}
+.hero-bg{position:absolute;inset:0;background:
+linear-gradient(115deg,transparent 0 48%,rgba(255,255,255,.025) 48.1% 48.25%,transparent 48.3%),
+repeating-linear-gradient(90deg,transparent 0 118px,rgba(255,255,255,.018) 119px 120px)}
+.hero-inner{width:min(1180px,100%);margin:auto;padding:150px 28px 74px;position:relative;z-index:2}
+.kicker{font:11px "DM Mono",monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+.hero h1{font-family:"Playfair Display",Georgia,serif;font-size:clamp(70px,13vw,168px);line-height:.82;letter-spacing:-.055em;margin:0;max-width:900px}
+.hero-role{font:600 13px "DM Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:#d5cdbd;margin-top:30px}
+.hero-logline{max-width:650px;font-size:17px;color:#bdb7aa;margin:25px 0 36px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:12px}
+.pill{border:1px solid rgba(255,255,255,.2);padding:9px 13px;font:11px "DM Mono",monospace;color:#d9d2c4}
+.pill:hover{border-color:var(--gold);color:var(--gold)}
+.scroll{position:absolute;right:28px;bottom:42px;writing-mode:vertical-rl;font:10px "DM Mono",monospace;letter-spacing:.18em;color:#777;text-transform:uppercase;z-index:3}
+@media(max-width:700px){.hero-inner{padding-top:130px}.scroll{display:none}}
+
+.section{padding:110px 0;border-top:1px solid var(--line)}
+.container{max-width:1180px;margin:auto;padding:0 28px}
+.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:48px}
+.eyebrow{font:11px "DM Mono",monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+h2{font-family:"Playfair Display",Georgia,serif;font-size:clamp(42px,6vw,76px);line-height:.95;letter-spacing:-.04em;margin:10px 0 0}
+.section-number{font:11px "DM Mono",monospace;color:var(--muted)}
+
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:start}
+.about-copy{font-size:20px;max-width:720px}
+.about-note{border-left:2px solid var(--gold);padding-left:22px;color:var(--muted);font:13px "DM Mono",monospace}
+@media(max-width:800px){.about-grid{grid-template-columns:1fr;gap:35px}}
+
+.reel{background:var(--black);color:var(--white);min-height:420px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border:1px solid #222}
+.reel:before{content:"SHOWREEL";position:absolute;font:700 clamp(80px,16vw,190px) "DM Sans",sans-serif;color:rgba(255,255,255,.035);letter-spacing:-.08em}
+.play{width:92px;height:92px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-size:25px;position:relative;z-index:2;transition:.25s}
+.play:hover{transform:scale(1.08);background:var(--gold);color:var(--black)}
+.reel-caption{position:absolute;left:25px;bottom:20px;font:11px "DM Mono",monospace;color:#999;letter-spacing:.1em}
+
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.project{min-height:350px;background:var(--black);color:var(--white);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:28px;transition:transform .25s}
+.project:hover{transform:translateY(-5px)}
+.project:nth-child(2){min-height:440px}
+.project:nth-child(3){min-height:390px}
+.project:nth-child(4){min-height:350px}
+.project:nth-child(5){grid-column:1/-1;min-height:280px}
+.project-bg{position:absolute;inset:0;background:
+linear-gradient(135deg,rgba(142,48,37,.5),transparent 45%),
+linear-gradient(315deg,rgba(200,161,90,.16),transparent 45%),
+repeating-linear-gradient(0deg,transparent 0 38px,rgba(255,255,255,.025) 39px 40px)}
+.project-content{position:relative;z-index:2}
+.project-no{font:10px "DM Mono",monospace;color:var(--gold);letter-spacing:.15em}
+.project h3{font-family:"Playfair Display",Georgia,serif;font-size:34px;line-height:1;margin:8px 0}
+.project .org{font:11px "DM Mono",monospace;color:#b7b0a3;text-transform:uppercase;letter-spacing:.08em}
+.project p{max-width:650px;color:#c8c1b5;font-size:14px}
+.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:13px}
+.tag{border:1px solid rgba(255,255,255,.2);padding:5px 8px;font:10px "DM Mono",monospace;color:#bbb;text-transform:uppercase}
+@media(max-width:700px){.projects{grid-template-columns:1fr}.project:nth-child(n){min-height:330px;grid-column:auto}}
+
+.skills{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.skill{padding:28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:180px}
+.skill-index{font:10px "DM Mono",monospace;color:var(--gold)}
+.skill h3{font-family:"Playfair Display",Georgia,serif;font-size:24px;margin:24px 0 8px}
+.skill p{font-size:13px;color:var(--muted);margin:0}
+@media(max-width:800px){.skills{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.skills{grid-template-columns:1fr}}
+
+.timeline{border-left:1px solid var(--ink);margin-left:12px}
+.tl{display:grid;grid-template-columns:150px 1fr;gap:30px;padding:24px 0 24px 28px;border-bottom:1px solid var(--line);position:relative}
+.tl:before{content:"";position:absolute;left:-5px;top:31px;width:9px;height:9px;background:var(--gold);border-radius:50%;box-shadow:0 0 0 5px var(--paper)}
+.when{font:10px "DM Mono",monospace;color:var(--red);text-transform:uppercase;letter-spacing:.1em}
+.tl h3{font-family:"Playfair Display",Georgia,serif;font-size:24px;margin:0 0 4px}
+.tl p{margin:0;color:var(--muted);font-size:13px}
+@media(max-width:650px){.tl{grid-template-columns:1fr;gap:7px}}
+
+.contact{background:var(--black);color:var(--white);padding:120px 0}
+.contact h2{font-size:clamp(55px,9vw,115px);max-width:850px}
+.contact-grid{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-top:55px}
+.contact-list{display:grid;gap:12px;font:13px "DM Mono",monospace;color:#bbb}
+.contact-list a:hover{color:var(--gold)}
+.cta{border:1px solid var(--gold);padding:15px 18px;color:var(--gold);font:11px "DM Mono",monospace;text-transform:uppercase;letter-spacing:.12em}
+.cta:hover{background:var(--gold);color:var(--black)}
+.footerline{margin-top:80px;padding-top:18px;border-top:1px solid #282828;font:10px "DM Mono",monospace;color:#666;display:flex;justify-content:space-between}
+@media(max-width:650px){.contact-grid{display:grid}.footerline{display:block;line-height:2}}
+</style>
+</head>
+<body>
+<div class="noise"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="#top">THIRUVAZAHAN<span> / FILM</span></a>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#reel">Reel</a>
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="kicker">Filmmaker Portfolio / Chennai, Tamil Nadu</div>
+    <h1>THIRUVAZAHAN</h1>
+    <div class="hero-role">Filmmaker — Director · Script Writer · Assistant Director</div>
+    <p class="hero-logline">An aspiring director from Chennai building craft from the ground up — writing scripts, running continuity on a live television set, and learning sound on a dubbing stage — with the aim of directing dynamic, visually driven Tamil cinema.</p>
+    <div class="hero-meta">
+      <a class="pill" href="mailto:s.thiru2324@gmail.com">s.thiru2324@gmail.com</a>
+      <a class="pill" href="tel:+918122333831">+918122333831</a>
+      <span class="pill">Saligramam, Chennai</span>
+    </div>
+  </div>
+  <div class="scroll">Scroll / Enter the frame ↓</div>
+</header>
+
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-head">
+      <div><div class="eyebrow">01 — Director's Note</div><h2>Why I make films.</h2></div>
+      <div class="section-number">01 / 06</div>
+    </div>
+    <div class="about-grid">
+      <div class="about-copy">
+        I'm an aspiring filmmaker with a strong pull toward directing and visual storytelling — currently pursuing a BFA in Film Making at L.V. Prasad College of Media Studies. I want to bring creativity, technical competence, and a collaborative spirit to dynamic film and media projects, and I'm building that from every seat on set: writer, assistant director, actor, and sound recordist — gaining hands-on experience across the full arc from conceptualization to post-production.
+      </div>
+      <div class="about-note">STORY / IMAGE / PERFORMANCE / SOUND / PRODUCTION<br><br>Building craft from the ground up, one setup at a time.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="reel">
+  <div class="container">
+    <div class="section-head">
+      <div><div class="eyebrow">02 — Showreel</div><h2>The moving image.</h2></div>
+      <div class="section-number">02 / 06</div>
+    </div>
+    <div class="reel">
+      <div class="play" aria-label="Showreel">▶</div>
+      <div class="reel-caption">SHOWREEL / PLACE VIDEO LINK HERE</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="container">
+    <div class="section-head">
+      <div><div class="eyebrow">03 — Selected Work</div><h2>On set & in story.</h2></div>
+      <div class="section-number">03 / 06</div>
+    </div>
+    <div class="projects">
+
+      <article class="project">
+        <div class="project-bg"></div>
+        <div class="project-content">
+          <div class="project-no">SCENE 01 / ONGOING</div>
+          <h3>Assistant Director</h3>
+          <div class="org">Kanmani Anbudan · Star Vijay</div>
+          <p>Handling shoot coordination and on-set operations for a running television serial. Manage continuity and coordinate directly with actors, technicians, and the production team throughout the shoot day.</p>
+          <div class="tags"><span class="tag">Continuity</span><span class="tag">Shoot Coordination</span><span class="tag">On-Set Ops</span></div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-bg"></div>
+        <div class="project-content">
+          <div class="project-no">SCENE 02 / WRAP</div>
+          <h3>Script Writer &amp; Director</h3>
+          <div class="org">Iravin Nizal · Student Short Film</div>
+          <p>Wrote and directed a student short film project, taking the story from page to shoot as part of a collaborative student crew.</p>
+          <div class="tags"><span class="tag">Screenwriting</span><span class="tag">Direction</span></div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-bg"></div>
+        <div class="project-content">
+          <div class="project-no">SCENE 03 / WRAP</div>
+          <h3>Actor</h3>
+          <div class="org">Iravin Nizal · Short Film</div>
+          <p>Stepped in front of the camera on the same project — first-hand experience of performance, which now informs how I write and direct scenes.</p>
+          <div class="tags"><span class="tag">Acting</span></div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-bg"></div>
+        <div class="project-content">
+          <div class="project-no">SCENE 04 / COMPLETE</div>
+          <h3>Sound Recording Intern</h3>
+          <div class="org">Sounds Right · Dubbing Studio</div>
+          <p>Hands-on training operating boom and lavalier microphones. Learned audio recording fundamentals, studio workflows, and sound equipment handling while assisting live dubbing sessions.</p>
+          <div class="tags"><span class="tag">Boom Op</span><span class="tag">Studio Workflow</span></div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-bg"></div>
+        <div class="project-content">
+          <div class="project-no">SCENE 05 / COMPLETE</div>
+          <h3>Advertisement Script Writer &amp; Poster Design</h3>
+          <div class="org">Women's Day Walkathon Event</div>
+          <p>Wrote advertisement scripts for the event and designed basic promotional posters in Canva.</p>
+          <div class="tags"><span class="tag">Copywriting</span><span class="tag">Canva</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <div class="container">
+    <div class="section-head">
+      <div><div class="eyebrow">04 — Toolkit</div><h2>Craft & capability.</h2></div>
+      <div class="section-number">04 / 06</div>
+    </div>
+    <div class="skills">
+      <div class="skill"><div class="skill-index">01</div><h3>Creative Writing</h3><p>Scripting in both English and Tamil, for film and advertisement formats.</p></div>
+      <div class="skill"><div class="skill-index">02</div><h3>Production Planning</h3><p>Shoot coordination, continuity management, and on-set operations.</p></div>
+      <div class="skill"><div class="skill-index">03</div><h3>Digital Marketing</h3><p>Google-certified digital marketing course; basic Canva poster design.</p></div>
+      <div class="skill"><div class="skill-index">04</div><h3>Entrepreneur Skills</h3><p>Accounts & stock verification, budget planning and execution.</p></div>
+      <div class="skill"><div class="skill-index">05</div><h3>MS Word & Excel</h3><p>Documentation, scheduling, and production paperwork.</p></div>
+      <div class="skill"><div class="skill-index">06</div><h3>Sound Recording</h3><p>Boom and lavalier mic operation, studio dubbing workflow.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div><div class="eyebrow">05 — Timeline</div><h2>Education & workshops.</h2></div>
+      <div class="section-number">05 / 06</div>
+    </div>
+    <div class="timeline">
+      <div class="tl"><div class="when">Pursuing</div><div><h3>BFA Film Making</h3><p>L.V. Prasad College of Media Studies</p></div></div>
+      <div class="tl"><div class="when">December 2025</div><div><h3>Workshop on Story Development</h3><p>Tent Cinema, Bengaluru — one-day workshop</p></div></div>
+      <div class="tl"><div class="when">November 2025</div><div><h3>Workshop on Story Discussion</h3><p>M Power Creations (YouTube) with director Mohan Raja</p></div></div>
+      <div class="tl"><div class="when">September 2025</div><div><h3>AI Tools — Certified Hands-on Training</h3><p>Internship program, IIT Madras Research Park — two-day workshop</p></div></div>
+      <div class="tl"><div class="when">April 2020</div><div><h3>XII — Sri Swamy International</h3><p></p></div></div>
+      <div class="tl"><div class="when">2018</div><div><h3>X — Amman Matriculation School, Erode</h3><p></p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="eyebrow">06 — Cut / Contact</div>
+    <h2>Let's work on something worth watching.</h2>
+    <div class="contact-grid">
+      <div class="contact-list">
+        <a href="mailto:s.thiru2324@gmail.com">s.thiru2324@gmail.com</a>
+        <a href="tel:+918122333831">+91 81223 33831</a>
+        <span>Saligramam, Chennai</span>
+      </div>
+      <a class="cta" href="mailto:s.thiru2324@gmail.com">Start a conversation →</a>
+    </div>
+    <div class="footerline">
+      <span>THIRUVAZAHAN — SCRIPT · DIRECTION · SOUND · PRODUCTION</span>
+      <span>© 2026</span>
+    </div>
+  </div>
+</section>
+</body>
+</html>
