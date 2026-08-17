@@ -291,6 +291,93 @@ repeating-linear-gradient(0deg,transparent 0 38px,rgba(255,255,255,.025) 39px 40
     grid-row: span 1;
   }
 }
+  /* =========================
+   SELECTED WORK GALLERY
+========================= */
+
+.work-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+/* Individual image card */
+
+.work-card {
+  position: relative;
+  overflow: hidden;
+  background: #090909;
+  height: 420px;
+}
+
+/* Large images */
+
+.work-card.work-large {
+  grid-column: span 2;
+  height: 620px;
+}
+
+/* Wide image */
+
+.work-card.work-wide {
+  grid-column: span 2;
+  height: 480px;
+}
+
+/* Images */
+
+.work-card img {
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  /* IMPORTANT:
+     Keeps the complete image visible */
+  object-fit: contain;
+
+  background: #090909;
+
+  transition: transform .6s ease;
+}
+
+/* Subtle cinematic zoom */
+
+.work-card:hover img {
+  transform: scale(1.025);
+}
+
+/* Dark cinematic overlay */
+
+.work-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom,
+    transparent 55%,
+    rgba(0,0,0,.35)
+  );
+
+  pointer-events: none;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+  .work-gallery {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .work-card,
+  .work-card.work-large,
+  .work-card.work-wide {
+    grid-column: span 1;
+    height: 420px;
+  }
+}
 </style>
 </head>
 <body>
@@ -397,68 +484,55 @@ repeating-linear-gradient(0deg,transparent 0 38px,rgba(255,255,255,.025) 39px 40
 
 <section class="section" id="work">
   <div class="container">
+
     <div class="section-head">
-      <div><div class="eyebrow">04 — Selected Work</div><h2>On set & in story.</h2></div>
-      <div class="section-number">03 / 06</div>
+      <div>
+        <div class="eyebrow">04 — Selected Work</div>
+        <h2>On set & in story.</h2>
+      </div>
+      <div class="section-number">04 / 07</div>
     </div>
-    <div class="projects">
 
-      <article class="project">
-        <div class="project-bg"></div>
-        <div class="project-content">
-          <div class="project-no">SCENE 01 / ONGOING</div>
-          <h3>Assistant Director</h3>
-          <div class="org">Kanmani Anbudan · Star Vijay</div>
-          <p>Handling shoot coordination and on-set operations for a running television serial. Manage continuity and coordinate directly with actors, technicians, and the production team throughout the shoot day.</p>
-          <div class="tags"><span class="tag">Continuity</span><span class="tag">Shoot Coordination</span><span class="tag">On-Set Ops</span></div>
-        </div>
-      </article>
+    <div class="work-gallery">
 
-      <article class="project">
-        <div class="project-bg"></div>
-        <div class="project-content">
-          <div class="project-no">SCENE 02 / WRAP</div>
-          <h3>Script Writer &amp; Director</h3>
-          <div class="org">Iravin Nizal · Student Short Film</div>
-          <p>Wrote and directed a student short film project, taking the story from page to shoot as part of a collaborative student crew.</p>
-          <div class="tags"><span class="tag">Screenwriting</span><span class="tag">Direction</span></div>
-        </div>
-      </article>
+      <div class="work-card work-large">
+        <img src="./01.jpg" alt="Selected Work 01">
+      </div>
 
-      <article class="project">
-        <div class="project-bg"></div>
-        <div class="project-content">
-          <div class="project-no">SCENE 03 / WRAP</div>
-          <h3>Actor</h3>
-          <div class="org">Iravin Nizal · Short Film</div>
-          <p>Stepped in front of the camera on the same project — first-hand experience of performance, which now informs how I write and direct scenes.</p>
-          <div class="tags"><span class="tag">Acting</span></div>
-        </div>
-      </article>
+      <div class="work-card">
+        <img src="./02.jpg" alt="Selected Work 02">
+      </div>
 
-      <article class="project">
-        <div class="project-bg"></div>
-        <div class="project-content">
-          <div class="project-no">SCENE 04 / COMPLETE</div>
-          <h3>Sound Recording Intern</h3>
-          <div class="org">Sounds Right · Dubbing Studio</div>
-          <p>Hands-on training operating boom and lavalier microphones. Learned audio recording fundamentals, studio workflows, and sound equipment handling while assisting live dubbing sessions.</p>
-          <div class="tags"><span class="tag">Boom Op</span><span class="tag">Studio Workflow</span></div>
-        </div>
-      </article>
+      <div class="work-card">
+        <img src="./03.jpg" alt="Selected Work 03">
+      </div>
 
-      <article class="project">
-        <div class="project-bg"></div>
-        <div class="project-content">
-          <div class="project-no">SCENE 05 / COMPLETE</div>
-          <h3>Advertisement Script Writer &amp; Poster Design</h3>
-          <div class="org">Women's Day Walkathon Event</div>
-          <p>Wrote advertisement scripts for the event and designed basic promotional posters in Canva.</p>
-          <div class="tags"><span class="tag">Copywriting</span><span class="tag">Canva</span></div>
-        </div>
-      </article>
+      <div class="work-card work-wide">
+        <img src="./04.jpg" alt="Selected Work 04">
+      </div>
+
+      <div class="work-card">
+        <img src="./05.jpg" alt="Selected Work 05">
+      </div>
+
+      <div class="work-card">
+        <img src="./06.jpg" alt="Selected Work 06">
+      </div>
+
+      <div class="work-card">
+        <img src="./07.jpg" alt="Selected Work 07">
+      </div>
+
+      <div class="work-card">
+        <img src="./08.jpg" alt="Selected Work 08">
+      </div>
+
+      <div class="work-card work-large">
+        <img src="./09.jpg" alt="Selected Work 09">
+      </div>
 
     </div>
+
   </div>
 </section>
 
