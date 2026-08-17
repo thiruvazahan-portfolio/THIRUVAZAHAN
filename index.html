@@ -91,11 +91,99 @@ repeating-linear-gradient(0deg,transparent 0 38px,rgba(255,255,255,.025) 39px 40
 .tag{border:1px solid rgba(255,255,255,.2);padding:5px 8px;font:10px "DM Mono",monospace;color:#bbb;text-transform:uppercase}
 @media(max-width:700px){.projects{grid-template-columns:1fr}.project:nth-child(n){min-height:330px;grid-column:auto}}
 
-.skills{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
-.skill{padding:28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:180px}
-.skill-index{font:10px "DM Mono",monospace;color:var(--gold)}
-.skill h3{font-family:"Playfair Display",Georgia,serif;font-size:24px;margin:24px 0 8px}
-.skill p{font-size:13px;color:var(--muted);margin:0}
+.skills {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  border: none;
+}
+
+.skill {
+  padding: 30px;
+  min-height: 200px;
+  position: relative;
+  overflow: hidden;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,.08);
+
+  background: linear-gradient(
+    135deg,
+    #3b1b16 0%,
+    #171513 48%,
+    #0b0b0a 100%
+  );
+
+  transition: transform .3s ease, border-color .3s ease;
+}
+
+.skill:nth-child(2) {
+  background: linear-gradient(
+    135deg,
+    #1b1a17 0%,
+    #151412 55%,
+    #0b0b0a 100%
+  );
+}
+
+.skill:nth-child(3) {
+  background: linear-gradient(
+    135deg,
+    #442018 0%,
+    #211614 48%,
+    #0b0b0a 100%
+  );
+}
+
+.skill:nth-child(4) {
+  background: linear-gradient(
+    135deg,
+    #24231b 0%,
+    #181713 50%,
+    #0b0b0a 100%
+  );
+}
+
+.skill:nth-child(5) {
+  background: linear-gradient(
+    135deg,
+    #3d1c16 0%,
+    #211614 48%,
+    #0b0b0a 100%
+  );
+}
+
+.skill:nth-child(6) {
+  background: linear-gradient(
+    135deg,
+    #29271d 0%,
+    #181713 50%,
+    #0b0b0a 100%
+  );
+}
+
+.skill:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+}
+
+.skill-index {
+  font: 10px "DM Mono", monospace;
+  color: var(--gold);
+  letter-spacing: .15em;
+}
+
+.skill h3 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 26px;
+  margin: 24px 0 10px;
+  color: var(--white);
+}
+
+.skill p {
+  font-size: 13px;
+  color: #bdb7aa;
+  margin: 0;
+}
 @media(max-width:800px){.skills{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.skills{grid-template-columns:1fr}}
 
